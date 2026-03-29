@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>EduPlan AI</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+h1 {
+  text-align: center;
+}
+select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eef;
+  border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>EduPlan AI</h1>
+
+<label>Nivel educativo:</label>
+<select id="nivel">
+  <option>Primaria</option>
+  <option>Secundaria</option>
+</select>
+
+<label>Materia:</label>
+<select id="materia">
+  <option>Inglés</option>
+  <option>Matemática</option>
+  <option>Ciencias</option>
+</select>
+
+<label>Tipo de planificación:</label>
+<select id="tipo">
+  <option>Anual</option>
+  <option>Mensual</option>
+  <option>Secuencia Didáctica</option>
+</select>
+
+<label>Adaptación:</label>
+<select id="adaptacion">
+  <option>Ninguna</option>
+  <option>TEA</option>
+  <option>TDAH</option>
+</select>
+
+<button onclick="generarPlan()">Generar planificación</button>
+
+<div class="result" id="resultado"></div>
+</div>
+
+<script>
+function generarPlan() {
+  let nivel = document.getElementById("nivel").value;
+  let materia = document.getElementById("materia").value;
+  let tipo = document.getElementById("tipo").value;
+  let adaptacion = document.getElementById("adaptacion").value;
+
+  let plan = `
+  📚 PLANIFICACIÓN ${tipo.toUpperCase()}  
+  Nivel: ${nivel}  
+  Materia: ${materia}  
+
+  🎯 Objetivos:
+  - Desarrollar habilidades clave en ${materia}
+  - Promover aprendizaje activo
+
+  🧠 Estrategias:
+  - Aprendizaje basado en proyectos
+  - Evaluación continua
+
+  ♿ Adaptación: ${adaptacion}
+  - Uso de apoyos visuales
+  - Actividades diferenciadas
+
+  📝 Evaluación:
+  - Observación
+  - Producciones del estudiante
+  `;
+
+  document.getElementById("resultado").innerText = plan;
+}
+</script>
+
+</body>
+</html>
